@@ -98,7 +98,13 @@ app.get('/app/flip', (req, res) => {
     res.status(200).json({ 'flip' : coinFlip()})
 })
 
+app.get('/app/flips/:number', (req, res) => {
+    let flips = coinFlips(req.params.number)
+    let final = countFlips(flips)
+    res.status(200).json({ 'pure' : flips, 'total' : final})
+})
+
 app.use(function(req, res) {
-    res.status(404).send("404 Not Found")
+    res.status(404).send("404 NOT FOUND")
     res.type("text/plain")
 })
