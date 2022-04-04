@@ -58,6 +58,6 @@ app.get('/app/flip', (req, res) => {
 })
 
 app.use(function(req, res) {
-    res.status(404).send("Endpoint does not exist")
+    res.status(404).send("404 Not Found")
     res.type("text/plain")
 })
