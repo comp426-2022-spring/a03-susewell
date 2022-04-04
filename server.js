@@ -104,12 +104,12 @@ app.get('/app/flips/:number', (req, res) => {
     res.status(200).json({ 'raw' : flips, 'summary' : final})
 })
 
-app.get('/app/flip/heads', (req, res) => {
+app.get('/app/flip/call/heads', (req, res) => {
     let heads = flipACoin('heads')
     res.status(200).json(heads)
 })
 
-app.get('/app/flip/tails', (req, res) => {
+app.get('/app/flip/call/tails', (req, res) => {
     let tails = flipACoin('tails')
     res.status(200).json(tails)
 })
