@@ -2,6 +2,10 @@
 const express = require('express')
 const app = express()
 
+const args = require ('minimist')(process.argv.slice(2));
+args['port'];
+const port_args = args.port;
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -13,6 +17,10 @@ const logging = (req, res, next) => {
 
 
 var port = 5000
+
+if (port_args != null) {
+    var port = port_args;
+}
 
 const server = app.listen(port, () => {
     console.log('App is running on a port %PORT%'.replace('%PORT%', port))
