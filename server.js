@@ -101,15 +101,15 @@ app.get('/app/flip', (req, res) => {
 app.get('/app/flips/:number', (req, res) => {
     let flips = coinFlips(req.params.number)
     let final = countFlips(flips)
-    res.status(200).json({ 'pure' : flips, 'total' : final})
+    res.status(200).json({ 'raw' : flips, 'summary' : final})
 })
 
-app.get('/app/flips/heads', (req, res) => {
+app.get('/app/flip/heads', (req, res) => {
     let heads = flipACoin('heads')
     res.status(200).json(heads)
 })
 
-app.get('/app/flips/tails', (req, res) => {
+app.get('/app/flip/tails', (req, res) => {
     let tails = flipACoin('tails')
     res.status(200).json(tails)
 })
