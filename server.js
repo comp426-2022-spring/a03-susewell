@@ -35,6 +35,47 @@ function coinFlip() {
     }
 }
 
+function coinFlips(flips) {
+
+    let result = [];
+    for(let i = 0; i < flips; i++) {
+      result [i] = coinFlip();
+    }
+    return result;
+}
+
+function countFlips(array) {
+
+     let i = 0;
+     let heads = 0
+     let tails = 0
+    
+    while (i < array.length) {
+      if (array[i] === 'heads') {
+        heads += 1;
+      }else {
+        tails +=1
+      }
+      i++;
+    }
+    if (tails === 0) {
+      return {'heads' : heads}
+    } else if (heads === 0) {
+      return {'tails' : tails}
+    } else {
+    return {'heads' : heads, 'tails' : tails}
+    }
+  }
+
+  function flipACoin(call) {
+    let flip =  coinFlip();
+  
+    if (call != flip){
+     return {call: call, flip: flip, result: 'lose'}
+    } else{
+      return {call: call, flip: flip, result: 'win'}
+    }
+  }
 app.get('/app', (req, res) => {
     res.status(200).end('API is working right')
     res.type('text/plain')
