@@ -104,6 +104,16 @@ app.get('/app/flips/:number', (req, res) => {
     res.status(200).json({ 'pure' : flips, 'total' : final})
 })
 
+app.get('/app/flips/heads', (req, res) => {
+    let heads = flipACoin('heads')
+    res.status(200).json(heads)
+})
+
+app.get('/app/flips/tails', (req, res) => {
+    let tails = flipACoin('tails')
+    res.status(200).json(tails)
+})
+
 app.use(function(req, res) {
     res.status(404).send("404 NOT FOUND")
     res.type("text/plain")
